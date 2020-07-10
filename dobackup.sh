@@ -8,6 +8,7 @@ echo "removing local archive"
 rm /tmp/*.
 echo "done"
 
-echo "Checking for logged in users..."
-players=$(rcon-cli list | head -1 | cut -d' ' -f3)
-[ $players == '0' ] && rcon-cli stop
+# We need to connect to STDIN on the server for rcon type commands :(
+# echo "Checking for logged in users..."
+# players=$(rcon-cli list | head -1 | cut -d' ' -f3)
+# [ $players == '0' ] && rcon-cli stop
