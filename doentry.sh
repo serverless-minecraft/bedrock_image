@@ -12,8 +12,8 @@ cd /data && curl "$WORLD" | tar xvf -
 
 echo "creating crontab"
 mkdir -p /etc/crontabs
-echo -e "$CRON_SCHEDULE /dobackup.sh\n" > /etc/crontabs/root
+echo -e "$CRON_SCHEDULE root /dobackup.sh\n" >> /etc/crontab
 echo "starting crond"
-crond -b
+cron
 
 exec /opt/bedrock-entry.sh
