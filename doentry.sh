@@ -8,7 +8,7 @@ cat /route53_upsert_template.json | sed s/NAME/"${baseTaskName}.${domainName}."/
 aws route53 change-resource-record-sets --hosted-zone-id ${zoneID} --change-batch file:///route53_upsert.json
 set +x
 
-cd /data && wget -qO- "$WORLD" | tar xvf -
+cd /data && curl "$WORLD" | tar xvf -
 
 echo "creating crontab"
 echo -e "$CRON_SCHEDULE /dobackup.sh\n" > /etc/crontabs/root
