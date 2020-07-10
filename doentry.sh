@@ -11,6 +11,7 @@ set +x
 cd /data && curl "$WORLD" | tar xvf -
 
 echo "creating crontab"
+mkdir -p /etc/crontabs
 echo -e "$CRON_SCHEDULE /dobackup.sh\n" > /etc/crontabs/root
 echo "starting crond"
 crond -b
