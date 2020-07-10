@@ -8,3 +8,4 @@ RUN \
 	rm /var/cache/apk/* && \
 	chmod +x /do*.sh
 COPY route53_upsert_template.json /
+COPY do*.sh /
