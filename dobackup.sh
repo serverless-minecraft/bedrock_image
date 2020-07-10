@@ -1,7 +1,7 @@
 #!/bin/sh
 echo "creating archive"
 cd /data
-zip -r /tmp/$BACKUP_NAME.zip world
+tar zcf /tmp/$BACKUP_NAME.zip .
 echo "uploading archive to S3"
 aws s3 cp /tmp/*.zip $S3_BUCKET_URL
 echo "removing local archive"
