@@ -9,3 +9,4 @@ RUN \
 	chmod +x /do*.sh
 COPY route53_upsert_template.json /
 COPY do*.sh /
+ENTRYPOINT ["/usr/local/bin/entrypoint-demoter", "--match", "/data", "--debug", "--stdin-on-term", "stop", "/doentry.sh"]
